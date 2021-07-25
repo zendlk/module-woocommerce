@@ -6,7 +6,7 @@ class Zend {
     public $prefix = "zendlk_woocommerce";
 
 
-    public function __construct($BASE_DIR) {
+    public function __construct() {
 
         /**
          * We have to add Zend API settings to the WooCommerce
@@ -15,6 +15,14 @@ class Zend {
         add_filter('woocommerce_settings_tabs_array', array($this, 'add_zend_settings_tab') , 50);
         add_action('woocommerce_settings_tabs_zendlk_woocommerce_settings_tab', array($this, 'display_settings_tab'));
         add_action('woocommerce_update_options_zendlk_woocommerce_settings_tab', array($this, 'update_settings'));
+
+        /**
+         * We have to register dispatcher to handle WooCommerce order
+         * events.
+         */
+        $Dispatcher = new Dispatcher();
+        // add_action('woocommerce_order_status_processing', array($Dispatcher, 'test'), 10, 1);
+        add_action('woocommerce_order_status_changed', array($Dispatcher, 'OnEvent_StatusChange'), 11, 3);
 
     }
 
@@ -62,7 +70,7 @@ class Zend {
             array_push($fields, [
                 "id" => $this->prefix."_sms_template_".$key,
                 "type" => "textarea",
-                "placeholder" => "SMS Content for the ".$element." event",
+                "default" => "Your order #{{order_id}} is now ".$element.". Thank you for shopping at {{shop_name}}.",
                 "css" => "min-width:500px;margin-top:-25px;min-height:80px;"
             ]);
         endforeach;
