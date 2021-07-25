@@ -1,0 +1,26 @@
+{
+    "name": "zendlk/php-sdk",
+    "type": "library",
+    "description": "Zend PHP SDK",
+    "support": {
+        "issues": "https://github.com/zendlk/php-sdk/issues",
+        "source": "https://github.com/zendlk/php-sdk"
+    },
+    "authors": [
+        {
+            "name": "Shyamin Ayesh",
+            "email": "me@shyamin.com",
+            "homepage": "https://shyamin.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zend\\": "src/"
+        }
+    },
+    "license": "GPL-3.0-or-later",
+    "homepage": "https://zend.lk"
+}
