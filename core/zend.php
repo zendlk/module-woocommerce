@@ -71,6 +71,7 @@ class Zend {
                 "id" => $this->prefix."_sms_template_".$key,
                 "type" => "textarea",
                 "default" => "Your order #{{order_id}} is now ".$element.". Thank you for shopping at {{shop_name}}.",
+                "placeholder" => "Message text for the ".$element." event",
                 "css" => "min-width:500px;margin-top:-25px;min-height:80px;"
             ]);
         endforeach;
