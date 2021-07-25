@@ -11,6 +11,6 @@
  */
 
 include_once "bootstrap.php";
-new Zend(__DIR__);
+new Zend();
 
 ?>
