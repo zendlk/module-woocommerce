@@ -102,6 +102,14 @@ class Zend {
             "desc_tip" => 'Enter mobile numbers. You can use multiple numbers by separating with a comma.',
             "placeholder" => "+94777123456",
         ]);
+
+        array_push($fields, [
+            "id" => $this->prefix."_administrator_notification_sms_template",
+            "type" => "textarea",
+            "title" => "Message",
+            "css" => "min-width:500px;min-height:80px;",
+            "default" => "You have a new customer order for {{shop_name}}. Order #{{order_id}}, Total Value: {{order_amount}}"
+        ]);
         array_push($fields, ["type" => "sectionend"]);
 
         /**
