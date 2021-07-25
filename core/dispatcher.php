@@ -39,31 +39,47 @@ class Dispatcher {
 	 * store owners mobile numbers queried from plugin configuration
 	 */
 	private function Dispatch_StaffNotifications($id, $status) {
-		$Order = new WC_Order($id);
 
-		$short_code_informations = [
-			"{{shop_name}}"			=> get_bloginfo('name'),
-			"{{order_id}}"			=> $Order->get_order_number(),
-			"{{order_amount}}"		=> $Order->get_total(),
-			"{{order_status}}"		=> ucfirst($Order->get_status()),
-			"{{first_name}}"		=> ucfirst($Order->billing_first_name),
-			"{{last_name}}"			=> ucfirst($Order->billing_last_name),
-			"{{billing_city}}"		=> ucfirst($Order->billing_city),
-			"{{customer_phone}}"	=> $Order->billing_phone,
-		];
+		/**
+		 * Check if the administrator recipients string is not empty
+		 * before processing any furthur with sending operation.
+		 */
+		if ( !empty(get_option($this->prefix."_administrator_notification_recipients")) ):
+			$recipients = explode(",", get_option($this->prefix."_administrator_notification_recipients"));
 
-		// RECIPIENTS
-		$recipients = explode(",", get_option($this->prefix."_administrator_notification_recipients"));
 
-		// MESSAGE
-		$message = get_option($this->prefix."_administrator_notification_sms_template");
-		$message = str_replace(array_keys($short_code_informations), $short_code_informations, $message);
+			/**
+			 * Check if the administrator message template string is
+			 * not empty before processing any furthur with the sending
+			 * operation.
+			 */
+			if ( !empty(get_option($this->prefix."_administrator_notification_sms_template")) ):
 
-		// SEND
-		SMS::compose($this->Config, [
-			"to" => $recipients,
-			"text" => $message,
-		])->send();
+				$Order = new WC_Order($id);
+
+				$short_code_informations = [
+					"{{shop_name}}"			=> get_bloginfo('name'),
+					"{{order_id}}"			=> $Order->get_order_number(),
+					"{{order_amount}}"		=> $Order->get_total(),
+					"{{order_status}}"		=> ucfirst($Order->get_status()),
+					"{{first_name}}"		=> ucfirst($Order->billing_first_name),
+					"{{last_name}}"			=> ucfirst($Order->billing_last_name),
+					"{{billing_city}}"		=> ucfirst($Order->billing_city),
+					"{{customer_phone}}"	=> $Order->billing_phone,
+				];
+
+				$message = get_option($this->prefix."_administrator_notification_sms_template");
+				$message = str_replace(array_keys($short_code_informations), $short_code_informations, $message);
+
+				// SEND
+				SMS::compose($this->Config, [
+					"to" => $recipients,
+					"text" => $message,
+				])->send();
+
+			endif;
+
+		endif;
 
 	}
 
