@@ -78,6 +78,33 @@ class Zend {
 
 
         /**
+         * Message templates sent out for the shop owners mobile
+         * phone numbers on the new order event.
+         */
+        array_push($fields, [
+            "type" => "title",
+            "title" => "Notifications for Administrators",
+            "desc" => "Control the SMS notifications send out to shop owner mobile numbers on new orders"
+        ]);
+
+        array_push($fields, [
+            "id" => $this->prefix."_administrator_notification_status",
+            "type" => "checkbox",
+            "default" => "no",
+            "title" => "Enable Notifications",
+            "desc" => "Enable administrator notifications for new orders.",
+        ]);
+
+        array_push($fields, [
+            "id" => $this->prefix."_administrator_notification_recipients",
+            "type" => "text",
+            "title" => "Mobile numbers",
+            "desc_tip" => 'Enter mobile numbers. You can use multiple numbers by separating with a comma.',
+            "placeholder" => "+94777123456",
+        ]);
+        array_push($fields, ["type" => "sectionend"]);
+
+        /**
          * We need section to fill out Zend.lk API access information
          * in order our plugin to work with.
          */
