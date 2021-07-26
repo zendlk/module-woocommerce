@@ -6,7 +6,7 @@
  * Version: 1.0
  * Author: Zend
  * Author URI: https://zend.lk
- * License: GPLv2 or later
+ * License: GPLv3
  * Text Domain: zendlk
  */
 
