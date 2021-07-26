@@ -1,4 +1,4 @@
-=== Zend WooCommerce ===
+=== Zend for WooCommerce ===
 Contributors: avanciro,shyaminayesh
 Tags: sms,otp,flash,sri lanka,woocommerce
 Requires at least: 3.0.1

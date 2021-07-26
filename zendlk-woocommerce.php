@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Zend WooCommerce
+ * Plugin Name: Zend for WooCommerce
  * Description: Send messages to customers about WooCommerce order updates with Zend.
  * Version: 1.0
  * Author: Zend
