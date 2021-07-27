@@ -1,12 +1,15 @@
 name: Publish to WordPress.org
+
 on:
   push:
     tags:
     - "*"
+
 jobs:
   tag:
     name: New tag
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@master
     - name: Composer install
