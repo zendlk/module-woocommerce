@@ -3,7 +3,7 @@ Contributors: avanciro,shyaminayesh
 Tags: sms,otp,flash,sri lanka,woocommerce
 Requires at least: 3.0.1
 Tested up to: 5.8
-Stable tag: trunk
+Stable tag: 1.0
 License: GPLv3
 License URI: https://github.com/zendlk/module-woocommerce/blob/dev/LICENSE
 
