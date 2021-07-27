@@ -34,6 +34,26 @@ class Dispatcher {
 		if ($new_status == "processing" &&  get_option($this->prefix."_administrator_notification_status") == "yes") { $this->Dispatch_StaffNotifications($order_id, $new_status); }
 	}
 
+
+	/**
+	 * We have to dispatch SMS notification for customer if
+	 * administrator add custom note for the order.
+	 */
+	public function OnEvent_Customer_NewOrderNotes($event) {
+		if ( get_option($this->prefix."_customer_note_status") == "yes" ):
+
+			$Order = new WC_Order($event["order_id"]);
+
+			preg_match_all('/^(?:0|94|\+94|0094|\+940)?(?:(?P<area>11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(?P<land_carrier>0|2|3|4|5|7|9)|7(?P<mobile_carrier>0|1|2|4|5|6|7|8)\d)\d{6}$/', $Order->get_billing_phone(), $matches, PREG_SET_ORDER, 0);
+			SMS::compose($this->Config, [
+				"to" => ["+94".substr($matches[0][0], -9)],
+				"text" => get_option($this->prefix."_customer_note_sms_template").$event["customer_note"]
+			])->send();
+
+		endif;
+	}
+
+
 	/**
 	 * This method will dispatch the formatted notification to
 	 * store owners mobile numbers queried from plugin configuration
