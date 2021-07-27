@@ -1,0 +1,61 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "1453249a96cf83abe6f4a87ba15f5b56",
+    "packages": [
+        {
+            "name": "zendlk/php-sdk",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendlk/php-sdk.git",
+                "reference": "b517651fa49f2933878aee5bc92dda174ef8663c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendlk/php-sdk/zipball/b517651fa49f2933878aee5bc92dda174ef8663c",
+                "reference": "b517651fa49f2933878aee5bc92dda174ef8663c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zend\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Shyamin Ayesh",
+                    "email": "me@shyamin.com",
+                    "homepage": "https://shyamin.com"
+                }
+            ],
+            "description": "Zend PHP SDK",
+            "homepage": "https://zend.lk",
+            "support": {
+                "issues": "https://github.com/zendlk/php-sdk/issues",
+                "source": "https://github.com/zendlk/php-sdk"
+            },
+            "time": "2021-07-25T18:05:18+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}

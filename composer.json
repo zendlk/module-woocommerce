@@ -1,0 +1,12 @@
+{
+    "require": {
+        "zendlk/php-sdk": "^1.0"
+    },
+    "config": {
+        "vendor-dir": "libs",
+        "process-timeout": 0,
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    }
+}
