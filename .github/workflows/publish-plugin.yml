@@ -23,4 +23,4 @@ jobs:
       env:
         SVN_PASSWORD: ${{ secrets.WP_SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.WP_SVN_USERNAME }}
-        SLUG: super-cool-plugin
+        SLUG: zend-for-woocommerce
