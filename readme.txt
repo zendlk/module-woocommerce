@@ -3,7 +3,7 @@ Contributors: avanciro,shyaminayesh
 Tags: sms,otp,flash,sri lanka,woocommerce
 Requires at least: 3.0.1
 Tested up to: 5.8
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3
 License URI: https://github.com/zendlk/module-woocommerce/blob/dev/LICENSE
 
@@ -61,6 +61,9 @@ Yes, if you are registered Zend user, you can use this plugin to integrate with 
 
 
 == Changelog ==
+
+= 1.1.0 =
+* Fix bugs
 
 = 1.0 =
 * Initial Release
