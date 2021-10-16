@@ -15,11 +15,13 @@ class Dispatcher {
 	 * and dispatch the proper notifications to the customers
 	 */
 	public function __construct() {
-		$this->Config = Config::create([
-			"token" => get_option($this->prefix."_api_token"),
-			"sender" => get_option($this->prefix."_sender_id"),
-			"version" => "2.0"
-		]);
+		if ( get_option($this->prefix."_api_token") && get_option($this->prefix."_sender_id") ):
+			$this->Config = Config::create([
+				"token" => get_option($this->prefix."_api_token"),
+				"sender" => get_option($this->prefix."_sender_id"),
+				"version" => "2.0"
+			]);
+		endif;
 	}
 
 
